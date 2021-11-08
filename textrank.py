@@ -13,7 +13,7 @@ nltk.download('wordnet')
 nltk.download('punkt')
 nltk.download('stopwords')
 
-vec_path = './glove.6B/glove.6B.100d.txt'
+***vec_path = './glove.6B/glove.6B.100d.txt'
 embeddings_file = open(vec_path, 'r')
 
 embeddings = dict()
@@ -23,7 +23,7 @@ for line in embeddings_file:
     word = values[0]
     coefs = np.asarray(values[1:], dtype='float64')
     embeddings[word] = coefs
-    
+***
 
 class Graph:
   
