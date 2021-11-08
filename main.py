@@ -78,7 +78,7 @@ st.title('Text Summarization using TextRank Algorithm')
 st.subheader('One stop for all types of summarizations!')
 
 
-image = Image.open('circle-cropped-1.png')
+image = Image.open('summary.jpg')
 st.sidebar.image(image, use_column_width=True)
 st.sidebar.markdown('<center> <h1>A-1 Summit</h1></center>',unsafe_allow_html=True)
 st.sidebar.markdown('[![]\
