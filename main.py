@@ -279,7 +279,7 @@ if wikiurl and no_of_sentences and st.button('Summarize Wikipedia Article'):
         st.subheader('Summarised text: ')
         summary, sum_scores = summarize(article_text, int(no_of_sentences))
 
-        subh = 'Summary sentence score for the top ' + str(no_of_sentences) + ' sentences: '
+        '''subh = 'Summary sentence score for the top ' + str(no_of_sentences) + ' sentences: '
 
         st.subheader(subh)
         summ_sentences = sent_tokenize(summary)
@@ -288,7 +288,8 @@ if wikiurl and no_of_sentences and st.button('Summarize Wikipedia Article'):
         df = pd.DataFrame(data, columns = ['Sentence', 'Score'])
 
         st.table(df)
-        print_rouge(article_text, summary)
+        print_rouge(article_text, summary)'''
+        print(summary)
 
 if textfield123 and no_of_sentences and st.button('Summarize Text'):
     if not str(no_of_sentences).isdigit():
