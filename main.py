@@ -31,14 +31,12 @@ def tokenizer(s):
     tokens = []
     for word in s.split(' '):
         tokens.append(word.strip().lower())
-        
     return tokens
 
 def sent_tokenizer(s):
     sents = []
     for sent in s.split('.'):
-        sents.append(sent.strip())
-        
+        sents.append(sent.strip()) 
     return sents
 
 def count_words(tokens):
@@ -48,8 +46,7 @@ def count_words(tokens):
             if token not in word_counts.keys():
                 word_counts[token] = 1
             else:
-                word_counts[token] += 1
-                
+                word_counts[token] += 1     
     return word_counts
 
 def word_freq_distribution(word_counts):
@@ -57,7 +54,6 @@ def word_freq_distribution(word_counts):
     max_freq = max(word_counts.values())
     for word in word_counts.keys():  
         freq_dist[word] = (word_counts[word]/max_freq)
-        
     return freq_dist
 
 def score_sentences(sents, freq_dist, max_len=40):
@@ -70,8 +66,7 @@ def score_sentences(sents, freq_dist, max_len=40):
                     if sent not in sent_scores.keys():
                         sent_scores[sent] = freq_dist[word.lower()]
                     else:
-                        sent_scores[sent] += freq_dist[word.lower()]
-                        
+                        sent_scores[sent] += freq_dist[word.lower()]           
     return sent_scores
 
 
@@ -82,12 +77,7 @@ st.subheader('One stop for all types of summarizations!')
 image = Image.open('summary.jpg')
 st.sidebar.image(image, use_column_width=True)
 st.sidebar.markdown('<center> <h1>A-1 Summit</h1></center>',unsafe_allow_html=True)
-st.sidebar.markdown('[![]\
-					(https://img.shields.io/badge/GitHub_Link-gray.svg?colorA=gray&colorB=gray&logo=github)]\
-					(https://github.com/arghyadeep99/A1-Summit)')
-
 st.sidebar.markdown('<center>The All-in-1 Summariser for your news articles, Wiki articles, notes and YouTube videos!</center>',unsafe_allow_html=True)
-st.sidebar.markdown('<center> <h3>Made By <a href="https://github.com/RusherRG" target="_blank">Rushang Gajjal</a>, <a href="https://arghyadeepdas.tech" target="_blank">Arghyadeep Das</a> and <a href="https://kiteretsu.tech" target="_blank">Karan Sheth</a>.</h3></center>',unsafe_allow_html=True)
 
 def print_usage():
     # Display the parameters and what they mean.
@@ -108,19 +98,13 @@ def summarize(article_text, num_of_sentences):
         if tuples[0] not in stop_words: 
             if len(tuples[0]) > 2:
                 keywords_names.append(tuples[0])
-
-    
     pre_summary, rank_sum = tr.textrank_summarise(article_text, num_of_sentences)
-    
     summary = re.sub("[\(\[].*?[\)\]♪]", "", pre_summary)
-    
     print_pretty(summary, keywords_names)
-    
     return summary, rank_sum
 
 def print_pretty (summary, keywords_names):
     columns = shutil.get_terminal_size().columns
-    
     printable = summary
     st.write(printable.center(columns))
     str_keywords_names = str(keywords_names).strip('[]')
@@ -161,14 +145,14 @@ def summarize2(ranks, sentences, length):
         final_summary = [sentences[j] for j in indices]
         return ' '.join(final_summary)
 
-def print_rouge(par, summ):
+'''def print_rouge(par, summ):
     (f11, p1, r1), (f12, p2, r2), (f1l, pl, rl)  = tr.rouge(par, summ)
     precision = [p1, p2, pl]
     recall = [r1, r2, rl]
     f1 = [f11, f12, f1l]
     df = pd.DataFrame(list(zip(precision, recall, f1)), columns=["Precision", "Recall", "F-1 Score"], index=["ROUGE-1", "ROUGE-2", "ROUGE-L"])
     st.subheader("ROUGE Scores")
-    st.table(df)
+    st.table(df)'''
 
 url = st.text_input('\nEnter URL of news article from The Hindu Newspaper: ')
 
@@ -198,7 +182,7 @@ def textfunc():
 
     summary, sum_scores = summarize(text, no_of_sentences)
         
-    subh = 'Summary sentence score for the top ' + str(no_of_sentences) + ' sentences: '
+    '''subh = 'Summary sentence score for the top ' + str(no_of_sentences) + ' sentences: '
 
     st.subheader(subh)
     summ_sentences = sent_tokenize(summary)
@@ -207,7 +191,8 @@ def textfunc():
     df = pd.DataFrame(data, columns = ['Sentence', 'Score'])
 
     st.table(df)
-    print_rouge(text, summary)
+    print_rouge(text, summary)'''
+    print(summary)
 
 def textforYT():
 
