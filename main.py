@@ -18,6 +18,7 @@ from nltk.corpus import stopwords
 from nltk.tokenize import word_tokenize 
 from sys import argv
 import os
+import shutil
 from nltk.tokenize import sent_tokenize, word_tokenize
 from string import punctuation
 from nltk.probability import FreqDist
@@ -118,7 +119,7 @@ def summarize(article_text, num_of_sentences):
     return summary, rank_sum
 
 def print_pretty (summary, keywords_names):
-    columns = os.get_terminal_size().columns
+    columns = shutil.get_terminal_size().columns
     
     printable = summary
     st.write(printable.center(columns))
