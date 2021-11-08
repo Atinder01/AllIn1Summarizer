@@ -67,7 +67,7 @@ def solve_sudoku(known_cells):
     model.objective = pyo.Objective(expr=1)
 
     # Solving
-    opt = SolverFactory("glpk")
+    opt = pyo.SolverFactory("glpk")
     solution = opt.solve(model)
 
     res = np.zeros((9, 9))
