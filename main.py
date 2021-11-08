@@ -10,7 +10,7 @@ from ui_auxiliary import empty_board_str, board_matrix_to_dataframe
 
 random.seed(0)
 
-st.title("Sudoku Solver")
+st.title("Sudoku Solver yes")
 
 st.subheader("Use linear programming to solve a Sudoku puzzle.")
 
