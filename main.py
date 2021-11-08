@@ -192,7 +192,7 @@ def textfunc():
 
     st.table(df)
     print_rouge(text, summary)'''
-    print(summary)
+    st.write(summary)
 
 def textforYT():
 
@@ -221,7 +221,7 @@ def textforYT():
 
     st.table(df)
     print_rouge(text, summary)'''
-    print(summary)
+    st.write(summary)
 
 
 if url and no_of_sentences and st.button('Summarize The Hindu Article'):
@@ -260,7 +260,7 @@ if url and no_of_sentences and st.button('Summarize The Hindu Article'):
 
     st.table(df)
     print_rouge(text, summary)'''
-    print(summary)
+    st.write(summary)
 
 if wikiurl and no_of_sentences and st.button('Summarize Wikipedia Article'):
     if not str(no_of_sentences).isdigit():
@@ -289,7 +289,7 @@ if wikiurl and no_of_sentences and st.button('Summarize Wikipedia Article'):
 
         st.table(df)
         print_rouge(article_text, summary)'''
-        print(summary)
+        st.write(summary)
 
 if textfield123 and no_of_sentences and st.button('Summarize Text'):
     if not str(no_of_sentences).isdigit():
