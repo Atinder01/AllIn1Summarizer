@@ -209,9 +209,9 @@ def textforYT():
     st.subheader('Summarised text: ')
     
     summary, sum_scores = summarize(text, no_of_sentences)
-
+   
     
-    subh = 'Summary sentence score for the top ' + str(no_of_sentences) + ' sentences: '
+    '''subh = 'Summary sentence score for the top ' + str(no_of_sentences) + ' sentences: '
 
     st.subheader(subh)
     summ_sentences = sent_tokenize(summary)
@@ -220,7 +220,8 @@ def textforYT():
     df = pd.DataFrame(data, columns = ['Sentence', 'Score'])
 
     st.table(df)
-    print_rouge(text, summary)
+    print_rouge(text, summary)'''
+    print(summary)
 
 
 if url and no_of_sentences and st.button('Summarize The Hindu Article'):
@@ -249,7 +250,7 @@ if url and no_of_sentences and st.button('Summarize The Hindu Article'):
     st.subheader('Summarised text: ')
     st.write(summary)
     
-    subh = 'Summary sentence score for the top ' + str(no_of_sentences) + ' sentences: '
+    '''subh = 'Summary sentence score for the top ' + str(no_of_sentences) + ' sentences: '
 
     st.subheader(subh)
     summ_sentences = sent_tokenize(summary)
@@ -258,7 +259,8 @@ if url and no_of_sentences and st.button('Summarize The Hindu Article'):
     df = pd.DataFrame(data, columns = ['Sentence', 'Score'])
 
     st.table(df)
-    print_rouge(text, summary)
+    print_rouge(text, summary)'''
+    print(summary)
 
 if wikiurl and no_of_sentences and st.button('Summarize Wikipedia Article'):
     if not str(no_of_sentences).isdigit():
