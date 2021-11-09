@@ -2,6 +2,5 @@ numpy==1.19.4
 pandas==1.1.5
 pyomo
 glpk
-glpsol
 streamlit==0.73.1
 pyutilib
